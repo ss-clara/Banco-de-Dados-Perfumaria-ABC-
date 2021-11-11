@@ -32,3 +32,5 @@ conn.commit()
 ## Fechar conexão
 conn.close
 quit()
+
+#TESTANDO 1,2,3 - Dia 11/11/2021
