@@ -15,7 +15,7 @@ if resp == 1:
     # importando biblioteca...
     import sqlite3
     # conectando banco de dados...
-    conn = sqlite3.connect("Perfumaria_ABC.db")
+    conn = sqlite3.connect("PerfumariaABC_(Amanda-Clara-Francidalva).db")
     # definindo um cursor...
     cursor = conn.cursor()
     # ---------------------------------------------------------------------------------------------------------------
@@ -82,7 +82,7 @@ if resp == 2:
     # importando biblioteca...
     import sqlite3
     # conectando banco de dados...
-    conn = sqlite3.connect("Perfumaria_ABC.db")
+    conn = sqlite3.connect("PerfumariaABC_(Amanda-Clara-Francidalva).db")
     # definindo um cursor...
     cursor = conn.cursor()
     # ---------------------------------------------------------------------------------------------------------------
@@ -119,19 +119,15 @@ if resp == 2:
 if resp == 3:
     # importando biblioteca...
     import sqlite3
-
     # conectando banco de dados...
-    conn = sqlite3.connect("Perfumaria_ABC.db")
-
+    conn = sqlite3.connect("PerfumariaABC_(Amanda-Clara-Francidalva).db")
     # definindo um cursor...
     cursor = conn.cursor()
-
     # ---------------------------------------------------------------------------------------------------------------
     # inicio do programa: consulta aos dados no banco de trabalho
     print("------------------------------------------------------------------------------------")
     print("                     Tela de consulta aos dados dos Produtos                        ")
     print("------------------------------------------------------------------------------------")
-
     # início do while loop
     resconsulta = "S"
     while resconsulta.upper() == "S":
