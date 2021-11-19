@@ -201,6 +201,7 @@ def outrasopcoes():
              [11] K-Listar rentabilidade dos produtos;
              [12] Sair.
              Sua opção desejada: """))
+        
         if opcao == 1:
              # Preparar instrução SQL para enviar ao banco
              isql = "Select dsprod, prvenda from produto order by dsprod"
@@ -266,6 +267,7 @@ def outrasopcoes():
                  print("\033[1;32mSaldo:\033[m ", linha[2])
                  print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
                  print(" ")
+                    
         elif opcao == 5:
             # Preparar instrução SQL para enviar ao banco
             isql = "Select codprod, dsprod, saldo, sldmin from produto where saldo < sldmin and prcusto > 0"
@@ -321,7 +323,6 @@ def outrasopcoes():
                print("\033[1;34mTotal de produtos cadastrados:\033[m ", linha[0])
                print(" ")
 
-
         elif opcao == 9:
             # Preparar instrução SQL para enviar ao banco
             isql = "Select count(*) from produto where saldo = 0"
@@ -370,7 +371,8 @@ def outrasopcoes():
         resconsulta = input("Deseja fazer nova consulta? (Digite 'S' para sim ou qualquer tecla para voltar)")
 
 # ---------------------------------------------------------------------------------------------------------------
-#                                        INÍCIO MENU INICIAL
+#                                        PROGRAMA PRINCIPAL
+# ---------------------------------------------------------------------------------------------------------------
 respencerrar = "N"
 while respencerrar.upper() == "N":
     print("------------------------------------------------------------------------------------")
