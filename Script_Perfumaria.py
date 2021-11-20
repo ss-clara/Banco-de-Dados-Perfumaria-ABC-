@@ -20,69 +20,72 @@ cursor = conn.cursor()
 # definição da função CADASTRO DE PRODUTOS
 def cadastroprod():
     print("------------------------------------------------------------------------------------")
-    print("                         \033[1;36mTela de cadastro dos Produtos\033[m              ")
+    print("                          Tela de cadastro dos Produtos                             ")
     print("------------------------------------------------------------------------------------")
 
     # início do while loop
     resp_cadastro = "S" # resposta pergunta cadastro
     while resp_cadastro.upper() == "S":
         print("")
-        codprod = input ("Insira CÓDIGO do produto: ")
+        codprod = int(input("Insira CÓDIGO do produto: "))
         # validando dados: o código do produto deve ser único e não pode ser nulo
-        while codprod == None: # ESSA PARTE AINDA ESTÁ ERRADA
-            codprod = input ("Informe um CÓDIGO válido para produto: ")
+        while codprod == None:
+            codprod = int(input("Informe um CÓDIGO válido para produto: "))
+        while (codprod) <= 0:
+            codprod = int(input("Informe um CÓDIGO válido para produto: "))
+        cursor.execute("select codprod from produto where codprod = " + str(codprod) + " ;")
+        rescon_codprod = cursor.fetchone()
+
+        while rescon_codprod != None:
+            print ("código já cadastrado!")
+            break
         else:
-            cursor.execute("select codprod from produto")
-            rescon_codprod = cursor.fetchone()
-            if rescon_codprod == codprod:
-                print ("\033[1;31mCódigo já cadastrado\033[m")
+            print("")
+            dsprod = input("Insira DESCRIÇÃO do produto: ")
+            # validando dados: nome do produto não pode estar vazio ou em branco...
+            while (dsprod) == None:
+                print("A descrição do produto não pode estar vazia ou em branco")
+                dsprod = input ("Informe DESCRIÇÃO válida para o produto: ")
 
-        print("")
-        dsprod = input("Insira DESCRIÇÃO do produto: ")
-        # validando dados: nome do produto não pode estar vazio ou em branco...
-        while (dsprod) == None:
-            print("A descrição do produto não pode estar vazia ou em branco")
-            dsprod = input ("Informe DESCRIÇÃO válida para o produto: ")
+            print("")
+            saldo = int(input("Insira SALDO ATUAL do produto: "))
+            # validando dados: não pode ser cadastrado produto com saldo negativo...
+            while (saldo) < 0:
+                print("Não é possível cadastrar um produto com saldo atual negativo")
+                saldo = int(input ("Informe SALDO ATUAL válido para produto: "))
 
-        print("")
-        saldo = int(input("Insira SALDO ATUAL do produto: "))
-        # validando dados: não pode ser cadastrado produto com saldo negativo...
-        while (saldo) < 0:
-            print("Não é possível cadastrar um produto com saldo atual negativo")
-            saldo = int(input ("Informe SALDO ATUAL válido para produto: "))
+            print("")   
+            sldmin = int(input("Insira SALDO MÍNIMO do produto: "))
+            # validando dados: não pode ser cadastrado produto com saldo negativo...
+            while (sldmin) < 0:
+                print("Não é possível cadastrar um produto com saldo mínimo negativo")
+                sldmin = int(input ("Informe SALDO MÍNIMO válido para produto: "))
 
-        print("")   
-        sldmin = int(input("Insira SALDO MÍNIMO do produto: "))
-        # validando dados: não pode ser cadastrado produto com saldo negativo...
-        while (sldmin) < 0:
-            print("Não é possível cadastrar um produto com saldo mínimo negativo")
-            sldmin = int(input ("Informe SALDO MÍNIMO válido para produto: "))
+            print("")
+            prvenda = float(input("Insira PREÇO DE VENDA do produto: "))
+            # validando dados: não pode ser cadastrado produto com preço negativo...
+            while (prvenda) < 0:
+                print("Não é possível cadastrar um produto com preço de venda negativo")
+                prvenda = float(input("Informe PREÇO DE VENDA válido para produto: "))
 
-        print("")
-        prvenda = float(input("Insira PREÇO DE VENDA do produto: "))
-        # validando dados: não pode ser cadastrado produto com preço negativo...
-        while (prvenda) < 0:
-            print("Não é possível cadastrar um produto com preço de venda negativo")
-            prvenda = float(input("Informe PREÇO DE VENDA válido para produto: "))
-
-        print("")
-        prcusto = float(input("Insira PREÇO DE CUSTO do produto: "))
-        # validando dados: não pode ser cadastrado produto com preço negativo...
-        while (prcusto) < 0:
-            print("Não é possível cadastrar um produto com preço de custo negativo")
-            prcusto = float(input("Informe PREÇO DE CUSTO válido para produto: "))
+            print("")
+            prcusto = float(input("Insira PREÇO DE CUSTO do produto: "))
+            # validando dados: não pode ser cadastrado produto com preço negativo...
+            while (prcusto) < 0:
+                print("Não é possível cadastrar um produto com preço de custo negativo")
+                prcusto = float(input("Informe PREÇO DE CUSTO válido para produto: "))
     
-        # inserindo dados no banco
-        cursor.execute("""
-        insert into produto (codprod, dsprod, saldo, sldmin, prvenda, prcusto)
-        values (?,?,?,?,?,?)
-        """, (codprod, dsprod, saldo, sldmin, prvenda, prcusto))
-        conn.commit()
-        print("")
-        print("Dados cadastrados com sucesso")
-        print("")
+            # inserindo dados no banco
+            cursor.execute("""
+            insert into produto (codprod, dsprod, saldo, sldmin, prvenda, prcusto)
+            values (?,?,?,?,?,?)
+            """, (codprod, dsprod, saldo, sldmin, prvenda, prcusto))
+            conn.commit()
+            print("")
+            print("Dados cadastrados com sucesso")
+            print("")
         # pergunta continuação
-        resp_cadastro = input("Deseja cadastrar novo produto? (Digite 'S' para sim ou qualquer tecla para voltar)")
+        resp_cadastro = input("Deseja cadastrar novo produto? (Digite 'S' para sim ou qualquer tecla para sair)") 
 # ---------------------------------------------------------------------------------------------------------------
 # fim da definição
 
