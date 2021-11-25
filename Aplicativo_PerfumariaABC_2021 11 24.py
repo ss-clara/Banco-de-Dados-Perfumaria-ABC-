@@ -6,9 +6,6 @@
 #         Francidalva de Sousa Moura
 # APLICAÇÃO PERFUMARIA ABC - APLICATIVO COMPLETO 
 # ---------------------------------------------------------------------------------------------------------------
-# NOTAS:
-# 
-# ---------------------------------------------------------------------------------------------------------------
 
 # importando bibliotecas...
 import sqlite3
@@ -179,7 +176,7 @@ def alteracaoprod():
                 print("[4] Para mudar PREÇO DE VENDA do produto")
                 print("[5] Para mudar PREÇO DE CUSTO do produto")
                 print("[6] Para DELETAR produto")
-                print("[V] Para VOLTAR")
+                print("[S] Para SAIR do produto")
                 print("------------------------------------------------------------------------------------")
                 escolhamalt = input("digite sua escolha: ")
                 print("------------------------------------------------------------------------------------")
@@ -210,18 +207,22 @@ def alteracaoprod():
                     cursor.execute("UPDATE produto set prcusto = '" + n_prcusto + "' where codprod = " + codprod + ";")
                     conn.commit()
                 elif escolhamalt == "6":
-                    # Enviando instrução para ser executada
-                    cursor.execute("DELETE from produto where codprod = " + codprod + ";")
-                    conn.commit()
-                    print("")
-                    print("Item deletado com sucesso!")
-                    break # interrompendo loop
-                elif escolhamalt.upper() == "V":
+                    # Confirmando exclusão
+                    print("Para confirmar exclusão do produto, digite [DELETE] confome aparece entre chaves:")
+                    conf_exclusão = input(" ")
+                    while conf_exclusão != "DELETE":
+                        conf_exclusão = input("Digite [DELETE] para confirmar exclusão do produto:")
+                    else:
+                        # Enviando instrução para ser executada
+                        cursor.execute("DELETE from produto where codprod = " + codprod + ";")
+                        conn.commit()
+                        print("")
+                        print("Item deletado com sucesso!")
+                        break 
+                elif escolhamalt.upper() == "S":
                     break # interrompendo loop
                 else:
                     print("\033[31mOPÇÃO INVÁLIDA!\033[m")
-                    escolhamalt = input("digite uma escolha válida: ")
-
             print("------------------------------------------------------------------------------------")
             print("Banco de dados atualizado com sucesso!")
             print("")
@@ -606,7 +607,7 @@ def area_trabalho():
         print("")
         print("       [1] PARA CADASTRAMENTO DE PRODUTOS")
         print("       [2] PARA CONSULTA DE PRODUTOS")
-        print("       [3] PARA ALTERAÇÃO DE PRODUTOS")
+        print("       [3] PARA ALTERAÇÃO E EXCLUSÃO DE PRODUTOS")
         print("       [4] PARA OUTRAS OPÇÕES DE CONSULTA")
         print("       [V] PARA PARA VOLTAR")
         print("       [E] PARA ENCERRAR APLICAÇÃO")
@@ -696,31 +697,34 @@ def bloqueiofun():
     while resbloqueio.upper() == "S":
         CPF = input("Informe CPF do funcionário que deseja bloquear:")
         print("------------------------------------------------------------------------------------")
-        print("")
-        print("[1] Para BLOQUEAR funcionário")
-        print("[V] Para VOLTAR")
-        print("")
-        print("------------------------------------------------------------------------------------")
-        escolhamalt = input("digite sua escolha: ")
-        print("------------------------------------------------------------------------------------")
-        print("")
-        while True:
-            if escolhamalt == "1":
+        # buscando usuário cadastrado no sistema
+        cursor.execute("select CPF from funcionario where CPF = '" + CPF + "';")
+        resp_cons_CPF = cursor.fetchone()
+        # comparando usuário cadastrado com usuário informado
+        while resp_cons_CPF == None:
+            print ("CPF NÃO CADASTRADO.")
+            CPF = input("Informe um número de CPF cadastrado: ")
+            cursor.execute("select CPF from funcionario where CPF = '" + CPF + "';")
+            resp_cons_CPF = cursor.fetchone()
+        else:
+            print("")
+            print("Para confirmar bloqueio do funcionário, digite [BLOCK] confome aparece entre chaves: ")
+            print("")
+            conf_exclusão = input(" ")
+            while conf_exclusão != "BLOCK":
+                print("")
+                conf_exclusão = input("Digite [BLOCK] para confirmar exclusão do produto: ")
+            else:
                 # Enviando instrução para ser executada
                 cursor.execute("DELETE from funcionario where CPF = " + CPF + ";")
                 conn.commit()
                 print("")
                 print("Funcionário bloqueado com sucesso!")
                 break # interrompendo loop
-            elif escolhamalt.upper() == "V":
-                break # interrompendo loop
-            else:
-                print("\033[1;31mOPÇÃO INVÁLIDA!\033[m")
-                escolhamalt = input("digite uma escolha válida: ")
         # pergunta continuação
         print("------------------------------------------------------------------------------------")
         print("DESEJA BLOQUEAR OUTRO FUNCIONÁRIO?")
-        resbloqueio = input("Digite 'S' para SIM ou qualquer tecla para VOLTAR: ")
+        resbloqueio = input("Digite 'S' para sim ou qualquer tecla para voltar: ")
 
 # ---------------------------------------------------------------------------------------------------------------
 # DEFINIÇÃO FUNÇÃO: CADASTRO FUNCIONÁRIO
@@ -899,4 +903,3 @@ print("-------------------------------------------------------------------------
 tela_inicial() # CHAMANDO FUNÇÃO
 
 # ---------------------------------------------------------------------------------------------------------------
-# teste
