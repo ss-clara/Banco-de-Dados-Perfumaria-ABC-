@@ -59,7 +59,7 @@ def cadastroprod():
         rescon_codprod = cursor.fetchone()
         # verificando se código já está cadastrado
         while rescon_codprod != None:
-            print ("código já cadastrado!")
+            print ("\033[31mcódigo já cadastrado!\033[m")
             break
 
         # prosseguindo para castro e validação das outras informações 
@@ -135,12 +135,12 @@ def consultaprod():
             print("")
         else:
             print("------------------------------------------------------------------------------------")
-            print("\033[1;31mProduto não cadastrado!\033[m")
+            print("\033[31mProduto não cadastrado!\033[m")
             print("")
         # pergunta continuação
         print("------------------------------------------------------------------------------------")
         print("DESEJA FAZER NOVA CONSULTA?")
-        resconsulta = input("Digite 'S' para sim ou qualquer tecla para voltar: ")
+        resconsulta = input("Digite 'S' para SIM ou qualquer tecla para VOLTAR: ")
 
 # ---------------------------------------------------------------------------------------------------------------
 # DEFININDO FUNÇÃO: ALTERAÇÃO DE PRODUTOS
@@ -219,7 +219,7 @@ def alteracaoprod():
                 elif escolhamalt.upper() == "V":
                     break # interrompendo loop
                 else:
-                    print("\033[1;31mOPÇÃO INVÁLIDA!\033[m")
+                    print("\033[31mOPÇÃO INVÁLIDA!\033[m")
                     escolhamalt = input("digite uma escolha válida: ")
 
             print("------------------------------------------------------------------------------------")
@@ -232,7 +232,7 @@ def alteracaoprod():
         # pergunta continuação
         print("------------------------------------------------------------------------------------")
         print("DESEJA ALTERAR OUTRO PRODUTO?")
-        resalteracao = input("Digite 'S' para sim ou qualquer tecla para voltar: ")
+        resalteracao = input("Digite 'S' para SIM ou qualquer tecla para VOLTAR: ")
         
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA A
@@ -247,7 +247,7 @@ def letra_a():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [A] LISTA DE PRODUTOS EM ORDEM ALFABÉTICA")
+    print("       \033[1;33m[A] LISTA DE PRODUTOS EM ORDEM ALFABÉTICA\033[m")
     print(" ")
     for linha in rs:
         print("-------------------------------------------------------------------------------------------------------")
@@ -265,7 +265,7 @@ def letra_b():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    codprod = input("       [B] LISTAR UM PRODUTO IDENTIFICADO PELO CÓDIGO: ")
+    codprod = input("       \033[33m[B] LISTAR UM PRODUTO IDENTIFICADO PELO CÓDIGO:\033[m ")
     print(" ")
     
     # Preparar instrução SQL para enviar ao banco
@@ -303,7 +303,7 @@ def letra_c():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [C] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO")
+    print("       \033[33m[C] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO\033[m")
     print(" ")
     if rs == None:
         print("-------------------------------------------------------------------------------------------------------")
@@ -334,7 +334,7 @@ def letra_d():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [D] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE VENDA > 0")
+    print("       \033[33m[D] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE VENDA > 0\033[m")
     print(" ")
     if rs == None:
         print("-------------------------------------------------------------------------------------------------------")
@@ -365,7 +365,7 @@ def letra_e():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [E] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE CUSTO > 0")
+    print("       \033[33m[E] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE CUSTO > 0\033[m")
     print(" ")
     if rs == None:
         print("-------------------------------------------------------------------------------------------------------")
@@ -396,8 +396,8 @@ def letra_f():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [F] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE VENDA > 0")
-    print("           EM ORDEM ALFABÉTICA")
+    print("       \033[33m[F] LISTA DE PRODUTOS CUJO SALDO EM ESTOQUE SEJA < SALDO MÍNIMO E PREÇO DE VENDA > 0")
+    print("           EM ORDEM ALFABÉTICA\033[m")
     print(" ")
     if rs == None:
         print("-------------------------------------------------------------------------------------------------------")
@@ -428,7 +428,7 @@ def letra_g():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [G] LISTA DE PRODUTOS CUJO PREÇO DE VENDA <= 0")
+    print("       \033[m[G] LISTA DE PRODUTOS CUJO PREÇO DE VENDA <= 0\033[m")
     print(" ")
     if rs == None:
         print("-------------------------------------------------------------------------------------------------------")
@@ -458,7 +458,7 @@ def letra_h():
     print("-------------------------------------------------------------------------------------------------------\033[m")
     for linha in rs:
         print(" ")
-        print("\033[1;34m       [H] TOTAL DE PRODUTOS CADASTRADOS: \033[m ", linha[0])
+        print("   \033[33m[H] TOTAL DE PRODUTOS CADASTRADOS:\033[m    ", linha[0])
         print(" ")
     print("-------------------------------------------------------------------------------------------------------")
     pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
@@ -482,7 +482,7 @@ def letra_i():
     else:
         for linha in rs:
             print(" ")
-            print("\033[1;31m       [I] TOTAL DE PRODUTOS COM SALDO EM ESTOQUE ZERADO:\033[m ", linha[0])
+            print("   \033[33m[I] TOTAL DE PRODUTOS COM SALDO EM ESTOQUE ZERADO:\033[m    ", linha[0])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
     pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
@@ -506,7 +506,7 @@ def letra_j():
     else:
         for linha in rs:
             print(" ")
-            print("\033[1;34m       [J] PRODUTOS COM SALDO EM ESTOQUE MENOR QUE O MÍNIMO:\033[m ", linha[0])
+            print("   \033[33m[J] PRODUTOS COM SALDO EM ESTOQUE MENOR QUE O MÍNIMO:\033[m   ", linha[0])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
     pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
@@ -524,7 +524,7 @@ def letra_k():
     print(">>>>>>   >>>>>>   >>>>>>     R E S U L T A D O S   D A   C O N S U L T A :     <<<<<<   <<<<<<   <<<<<<")
     print("-------------------------------------------------------------------------------------------------------\033[m")
     print(" ")
-    print("       [K] LISTA DE RENTABILIDADE DOS PRODUTOS")
+    print("       \033[33m[K] LISTA DE RENTABILIDADE DOS PRODUTOS\033[m   ")
     print(" ")
     for linha in rs:
         print("-------------------------------------------------------------------------------------------------------")
@@ -720,7 +720,7 @@ def bloqueiofun():
         # pergunta continuação
         print("------------------------------------------------------------------------------------")
         print("DESEJA BLOQUEAR OUTRO FUNCIONÁRIO?")
-        resbloqueio = input("Digite 'S' para sim ou qualquer tecla para voltar: ")
+        resbloqueio = input("Digite 'S' para SIM ou qualquer tecla para VOLTAR: ")
 
 # ---------------------------------------------------------------------------------------------------------------
 # DEFINIÇÃO FUNÇÃO: CADASTRO FUNCIONÁRIO
@@ -747,7 +747,7 @@ def cadastrofun():
         rescon_CPF = cursor.fetchone()
 
         while rescon_CPF != None:
-            print ("Funcionário já cadastrado!")
+            print ("\033[1;31mFuncionário já cadastrado!\033[m")
             break
 
         else:
@@ -788,7 +788,7 @@ def cadastrofun():
         # pergunta continuação
         print("------------------------------------------------------------------------------------")
         print("DESEJA CADASTRAR NOVO FUNCIONÁRIO?")
-        resp_cadastro_fun = input("Digite 'S' para sim ou qualquer tecla para voltar: ")
+        resp_cadastro_fun = input("Digite 'S' para SIM ou qualquer tecla para VOLTAR: ")
             
 # ---------------------------------------------------------------------------------------------------------------
 # DEFINIÇÃO FUNÇÃO: LOGIN FUNCIONÁRIO
@@ -817,7 +817,7 @@ def area_adm():
             limpar_tela() 
             tela_inicial() 
         else:
-            print("OPÇÃO INVÁLIDA. TENTE DE NOVO.")
+            print("\033[1;31mOPÇÃO INVÁLIDA. TENTE DE NOVO.\033[m")
 
 # ---------------------------------------------------------------------------------------------------------------
 # DEFINIÇÃO FUNÇÃO: LOGIN FUNCIONÁRIO
@@ -886,7 +886,7 @@ def tela_inicial():
         elif escolha_controle.upper() == "E":
             encerrar() # CHAMANDO FUNÇÃO
         else:
-            print("OPÇÃO INVÁLIDA. TENTE DE NOVO.")
+            print("\033[1;31mOPÇÃO INVÁLIDA. TENTE DE NOVO.\033[m")
             
 # ---------------------------------------------------------------------------------------------------------------   
 # ---------------------------------------------------------------------------------------------------------------
