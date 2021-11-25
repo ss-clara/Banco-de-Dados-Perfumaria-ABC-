@@ -256,7 +256,7 @@ def letra_a():
         print("\033[1;33mPreço de venda:\033[m ", linha[1])
         print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA B 
@@ -288,7 +288,7 @@ def letra_b():
             print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA C
@@ -319,7 +319,7 @@ def letra_c():
             print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA D
@@ -350,7 +350,7 @@ def letra_d():
             print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA E
@@ -381,7 +381,7 @@ def letra_e():
             print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA F
@@ -413,7 +413,7 @@ def letra_f():
             print("\033[1;31mSaldo mínimo:\033[m ", linha[3])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA G
@@ -442,7 +442,7 @@ def letra_g():
             print("\033[1;33mNome:\033[m ", linha[1])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA H
@@ -461,7 +461,7 @@ def letra_h():
         print("\033[1;34m       [H] TOTAL DE PRODUTOS CADASTRADOS: \033[m ", linha[0])
         print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA I
@@ -485,7 +485,7 @@ def letra_i():
             print("\033[1;31m       [I] TOTAL DE PRODUTOS COM SALDO EM ESTOQUE ZERADO:\033[m ", linha[0])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA J
@@ -509,7 +509,7 @@ def letra_j():
             print("\033[1;34m       [J] PRODUTOS COM SALDO EM ESTOQUE MENOR QUE O MÍNIMO:\033[m ", linha[0])
             print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: LETRA K
@@ -535,7 +535,7 @@ def letra_k():
         print("\033[1;35mRentabilidade:\033[m ", linha[3])
         print(" ")
     print("-------------------------------------------------------------------------------------------------------")
-    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR")
+    pausa = input("DIGITE QUALQUER TECLA PARA VOLTAR") # pausa para execução em cmd windows
     
 # ---------------------------------------------------------------------------------------------------------------        
 # DEFININDO FUNÇÃO: OUTRAS FORMAS DE CONSULTA DE PRODUTOS
@@ -899,3 +899,4 @@ print("-------------------------------------------------------------------------
 tela_inicial() # CHAMANDO FUNÇÃO
 
 # ---------------------------------------------------------------------------------------------------------------
+# teste
